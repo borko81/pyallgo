@@ -9,8 +9,18 @@ data = [
 
 def main():
     print(f'{"":15} | {"latitude":<9} | {"longitude":>9}')
+    # for unpack tuple need variable to be in parentasie
     for name, _, _, (lat, lon) in data:
         print(f'{name:15} | {lat:>9.4f} | {lon:>9.4f}')
 
+
+def work_with_match():
+    for record in data:
+        match record:
+            case [name, _, _, (_, lon)] if lon <= 0:
+                print(f'{name}')
+
+
 if __name__ == '__main__':
-    main()
+    work_with_match()
+    
